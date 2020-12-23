@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//To move the 2D Player Car to the left and right on the x-axis
 public class Player : MonoBehaviour
 {
     //variables that can be edited from Unity
