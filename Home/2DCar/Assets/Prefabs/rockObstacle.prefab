@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4640872733504311785}
   - component: {fileID: 4640872733504311786}
+  - component: {fileID: 4939680638863701365}
   m_Layer: 0
   m_Name: rockObstacle
   m_TagString: Untagged
@@ -82,3 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4939680638863701365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640872733504311787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e950f0508f88648bb88fd342bc3db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 2378144942273732136, guid: 5036edca88e6a6f4595f42baaeb52dcc, type: 3}
+  - {fileID: 2278334458406034151, guid: df88f62e19b67fd478041a776c78015e, type: 3}
+  - {fileID: 9210513687121211811, guid: fdb0f1568fcb4214e9bb9c59dd5ac9ab, type: 3}
+  - {fileID: 8016562763012795844, guid: ff0a6530b10139142a23c9e2ab10c2e6, type: 3}
+  - {fileID: 786264404164320723, guid: 0f56e2a978f377f4b85ee28c627c1d1c, type: 3}
