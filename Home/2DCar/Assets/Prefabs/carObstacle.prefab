@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4056603050383590302}
   - component: {fileID: 8430363077978654129}
   - component: {fileID: -5695463376001206134}
+  - component: {fileID: -658310265025725482}
   m_Layer: 0
   m_Name: carObstacle
   m_TagString: Untagged
@@ -95,3 +96,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e950f0508f88648bb88fd342bc3db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints: []
+  movementSpeed: 3
+--- !u!60 &-658310265025725482
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834169942280681802}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.94, y: 0.43}
+    newSize: {x: 0.94, y: 0.43}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.06, y: 0.185}
+      - {x: -0.31, y: 0.16499999}
+      - {x: -0.35, y: 0.145}
+      - {x: -0.35, y: -0.114999995}
+      - {x: -0.34, y: -0.16499999}
+      - {x: -0.17, y: -0.185}
+      - {x: 0.22, y: -0.185}
+      - {x: 0.29999998, y: -0.175}
+      - {x: 0.37, y: -0.065}
+      - {x: 0.37, y: 0.095}
+      - {x: 0.29999998, y: 0.185}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4640872733504311785}
   - component: {fileID: 4640872733504311786}
   - component: {fileID: 4939680638863701365}
+  - component: {fileID: 3787095661824041156}
   m_Layer: 0
   m_Name: rockObstacle
   m_TagString: Untagged
@@ -101,3 +102,37 @@ MonoBehaviour:
   - {fileID: 9210513687121211811, guid: fdb0f1568fcb4214e9bb9c59dd5ac9ab, type: 3}
   - {fileID: 8016562763012795844, guid: ff0a6530b10139142a23c9e2ab10c2e6, type: 3}
   - {fileID: 786264404164320723, guid: 0f56e2a978f377f4b85ee28c627c1d1c, type: 3}
+  movementSpeed: 3
+--- !u!60 &3787095661824041156
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640872733504311787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.56, y: 0.27}
+    newSize: {x: 0.56, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.12, y: 0.13499999}
+      - {x: -0.19999999, y: 0.055}
+      - {x: -0.19999999, y: -0.044999998}
+      - {x: -0.19, y: -0.13499999}
+      - {x: 0.17, y: -0.13499999}
+      - {x: 0.19, y: -0.095}
+      - {x: 0.19, y: 0.024999999}
+      - {x: 0.08, y: 0.13499999}
