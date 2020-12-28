@@ -36,11 +36,11 @@ public class ObstacleSpawner : MonoBehaviour
     private IEnumerator SpawnAllObstaclesInWave(WaveConfig waveConfig)
     {
         //loop to spawn multiple obstacles in a wave
-        for (int obstacleCount = 1; obstacleCount <= waveConfig.GetNumberOfEnemies(); obstacleCount++)
+        for (int obstacleCount = 1; obstacleCount <= waveConfig.GetNumberOfObstacles(); obstacleCount++)
         {
             var obstacle = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
 
-            obstacle.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+            obstacle.GetComponent<ObstaclePathing>().SetWaveConfig(waveConfig);
 
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
         }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ScrollingBackground : MonoBehaviour
 {
-    [SerializeField] float backgroundScrollSpeed = 0.02f;
+    [SerializeField] float backgroundScrollingSpeed = 0.02f;
 
     //the Material from the texture background
-    Material myMaterial;
+    Material myMaterialBackground;
 
     //movement offSet x = 0; y = 0
     Vector2 offSet;
@@ -16,10 +16,10 @@ public class ScrollingBackground : MonoBehaviour
     void Start()
     {
         //get the Material of the background from Renderer component
-        myMaterial = GetComponent<Renderer>().material;
+        myMaterialBackground = GetComponent<Renderer>().material;
 
         //move in the y-axis at the given speed 
-        offSet = new Vector2(0f, backgroundScrollSpeed);
+        offSet = new Vector2(0f, backgroundScrollingSpeed);
     }
 
     // Update is called once per frame
@@ -27,6 +27,6 @@ public class ScrollingBackground : MonoBehaviour
     {
         //to update at that offset
         //move the texture of the material by offset every frame
-        myMaterial.mainTextureOffset += offSet * Time.deltaTime;
+        myMaterialBackground.mainTextureOffset += offSet * Time.deltaTime;
     }
 }

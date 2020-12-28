@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a451dd385d928f346866cd297770911c, type: 3}
   m_Name: Wave5
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 675550466408866115, guid: de9382c5f5f33064da66e2919487f78c, type: 3}
+  obstaclePrefab: {fileID: 675550466408866115, guid: de9382c5f5f33064da66e2919487f78c, type: 3}
   pathPrefab: {fileID: 4796847838020863871, guid: c1d8c411f4c03d04d905c28c7ef469a2, type: 3}
-  enemyMoveSpeed: 2
-  numberOfEnemies: 5
-  timeBetweenSpawns: 0.5
+  obstacleMovementSpeed: 2
+  numberOfObstacles: 5
+  timeBetweenSpawns: 1.5
   spawnRandomFactor: 0.3

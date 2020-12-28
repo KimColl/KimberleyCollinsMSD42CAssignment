@@ -6,7 +6,7 @@ using UnityEngine;
 //this is going to be called when to deal damage
 public class DamageDealer : MonoBehaviour
 {
-    //all damage dealers playerLaser, enemyLaser and the enemyLaser will deal the same amount of damage
+    //all damage dealers will deal different damages via Unity
     [SerializeField] int damageWaveBullets = 1;
 
     //return the amount of damage

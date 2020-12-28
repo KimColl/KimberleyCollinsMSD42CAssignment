@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUpMoveBoundaries();
+        SettingBoundaries();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     }
 
     //to setup the boundaries according to the camera
-    private void SetUpMoveBoundaries()
+    private void SettingBoundaries()
     {
         Camera gameCamera = Camera.main;
 

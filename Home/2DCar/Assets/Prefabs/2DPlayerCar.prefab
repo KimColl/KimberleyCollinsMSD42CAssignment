@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3691426134471398372}
   - component: {fileID: 3691426134471398370}
   - component: {fileID: -4306136622761392954}
+  - component: {fileID: 7471163613472429744}
   m_Layer: 0
   m_Name: 2DPlayerCar
   m_TagString: Untagged
@@ -110,4 +111,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7cfe76e3f11b947ac95d04a48e7603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damageWaveBullets: 1
+--- !u!60 &7471163613472429744
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691426134471398373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.47, y: 0.63}
+    newSize: {x: 0.47, y: 0.63}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.155, y: 0.305}
+      - {x: -0.155, y: -0.315}
+      - {x: 0.145, y: -0.315}
+      - {x: 0.16499999, y: -0.24499999}
+      - {x: 0.16499999, y: 0.265}
+      - {x: 0.074999996, y: 0.305}

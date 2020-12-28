@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy Wave Config")]
+[CreateAssetMenu(menuName = "Obstacle Wave Config")]
 
 public class WaveConfig : ScriptableObject //it is sort of like creating an asset from a script
 {
     //the enmey that will spawn in this wave
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject obstaclePrefab;
 
     //the path that the wave will follow
     [SerializeField] GameObject pathPrefab;
 
-    //the speed of the enemy
-    [SerializeField] float enemyMoveSpeed = 2f;
+    //the speed of the obstacle
+    [SerializeField] float obstacleMovementSpeed = 2f;
 
-    //the number of enemiesin the wave
-    [SerializeField] int numberOfEnemies = 5;
+    //the number of obstacles in the wave
+    [SerializeField] int numberOfObstacles = 5;
 
-    //time between each enemy spawn
-    [SerializeField] float timeBetweenSpawns = 0.5f; //half a second
+    //time between each obstacle spawn
+    [SerializeField] float timeBetweenSpawns = 1.5f; //half a second
 
     //random time difference between spawns
     [SerializeField] float spawnRandomFactor = 0.3f;
@@ -28,7 +28,7 @@ public class WaveConfig : ScriptableObject //it is sort of like creating an asse
     //encapsulation
     public GameObject GetEnemyPrefab()
     {
-        return enemyPrefab;
+        return obstaclePrefab;
     }
 
     public List<Transform> GetWayPoints()
@@ -45,14 +45,14 @@ public class WaveConfig : ScriptableObject //it is sort of like creating an asse
         return waveWayPoints;
     }
 
-    public float GetEnemyMoveSpeed()
+    public float GetObstacleMovementSpeed()
     {
-        return enemyMoveSpeed;
+        return obstacleMovementSpeed;
     }
 
-    public int GetNumberOfEnemies()
+    public int GetNumberOfObstacles()
     {
-        return numberOfEnemies;
+        return numberOfObstacles;
     }
 
     public float GetTimeBetweenSpawns()
