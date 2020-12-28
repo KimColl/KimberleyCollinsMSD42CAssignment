@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3691426134471398371}
   - component: {fileID: 3691426134471398372}
   - component: {fileID: 3691426134471398370}
+  - component: {fileID: -4306136622761392954}
   m_Layer: 0
   m_Name: 2DPlayerCar
   m_TagString: Untagged
@@ -97,3 +98,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 0.7
+--- !u!114 &-4306136622761392954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691426134471398373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7cfe76e3f11b947ac95d04a48e7603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

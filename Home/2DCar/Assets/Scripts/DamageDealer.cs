@@ -7,15 +7,15 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     //all damage dealers playerLaser, enemyLaser and the enemyLaser will deal the same amount of damage
-    [SerializeField] int damage = 100;
+    [SerializeField] int damageWaveBullets = 1;
 
     //return the amount of damage
-    public int GetDamage()
+    public int GetDamageWaveBullets()
     {
-        return damage; //encapsulating our fields
+        return damageWaveBullets; //encapsulating our fields
     }
 
-    //this hit will be called when we want to destroy an object
+    //this hit method will be called when we want to destroy an object
     //destroys the gameObject
     public void Hit()
     {

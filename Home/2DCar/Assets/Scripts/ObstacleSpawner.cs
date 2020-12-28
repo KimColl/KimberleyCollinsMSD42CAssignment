@@ -8,15 +8,21 @@ public class ObstacleSpawner : MonoBehaviour
     //ceate a list of waves of WaveConfigs
     [SerializeField] List<WaveConfig> waveConfigList;
 
+    [SerializeField] bool loop = false;
+
     int waveStart = 0;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        var latestWave = waveConfigList[waveStart];
-
-        //spawns all obstacles in latestWave
-        StartCoroutine(SpawningAllTheWaves());
+        //if loop is unticked that means that it is false and it will loop once
+        //if loop is ticked, that means that it is true and it will loop many times
+        do
+        {
+            //starts the coroutine (SpawningAllTheWaves) and it will wait until that coroutine finishes
+            yield return StartCoroutine(SpawningAllTheWaves());
+        }
+        while (loop == true); //when this coroutine (SpawningAllTheWaves) finishes, it cheks if it is still looping and it will start all over again
     }
 
     // Update is called once per frame
@@ -41,11 +47,12 @@ public class ObstacleSpawner : MonoBehaviour
         
     }
 
+    //loop all waves
     private IEnumerator SpawningAllTheWaves()
     {
         foreach(WaveConfig nowWave in waveConfigList)
         {
-            //wait until the obstacles are spawned
+            //wait until the obstacles are spawned before going to the next wave
             yield return StartCoroutine(SpawnAllObstaclesInWave(nowWave));
         }
     }
