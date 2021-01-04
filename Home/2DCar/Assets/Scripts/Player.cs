@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    //to setup the boundaries according to the camera
+    //to setup the boundaries according to the camera, so the car does not overlap the camera
     private void SettingBoundaries()
     {
         Camera gameCamera = Camera.main;
