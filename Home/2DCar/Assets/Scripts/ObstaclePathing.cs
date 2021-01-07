@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ObstaclePathing : MonoBehaviour
 {
-    //in this list waypoints i saved waypoint 0, waypoint 1, waypoint 2, waypoint 3, , waypoint 4 
+    //in the list waypoints i saved waypoint 0, waypoint 1, waypoint 2, waypoint 3, , waypoint 4 
     [SerializeField] List<Transform> waypoints; //waypoints is the name of the list
 
-    [SerializeField] WaveConfig waveConfig;
+    [SerializeField] ObstacleWave waveConfig;
 
     //saves the waypoint in which we want to go
     int waypointElement = 0;
@@ -25,10 +25,10 @@ public class ObstaclePathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMoving();
+        ObstacleMoving(); 
     }
 
-    private void EnemyMoving()
+    private void ObstacleMoving() //change the name
     {
         // 0, 1, 2, 3, 4    <=      4
         if (waypointElement <= waypoints.Count - 1)
@@ -36,22 +36,22 @@ public class ObstaclePathing : MonoBehaviour
             //set the positionTarget to the waypoint where we want to go
             var positionTarget = waypoints[waypointElement].transform.position;
 
-            //to make sure that the z -axis = 0
+            //to make sure that the z -axis is always equal to 0
             positionTarget.z = 0f;
 
-            var enemyMove = waveConfig.GetObstacleMovementSpeed() * Time.deltaTime;
+            var obstacleMove = waveConfig.GetObstacleMovementSpeed() * Time.deltaTime; //change the name of the enemyMove
 
-            //move Enemy from current position to targetPosition, at enemyMovement speed
-            transform.position = Vector2.MoveTowards(transform.position, positionTarget, enemyMove);
+            //move obstacle from current position to targetPosition, at enemyMovement speed
+            transform.position = Vector2.MoveTowards(transform.position, positionTarget, obstacleMove); //change the name of the enemyMove
 
-            //if Enemy reaches the target position
+            //if obstacle reaches the target position
             if (transform.position == positionTarget)
             {
                 waypointElement++;
             }
 
         }
-        //if the enemy reaches the last waypoint
+        //if the obstacle reaches the last waypoint
         else
         {
             Destroy(gameObject);
@@ -59,7 +59,7 @@ public class ObstaclePathing : MonoBehaviour
     }
 
     //set a WaveConfig
-    public void SetWaveConfig(WaveConfig waveConfigToSet)
+    public void SetWaveConfig(ObstacleWave waveConfigToSet)
     {
         waveConfig = waveConfigToSet;
     }

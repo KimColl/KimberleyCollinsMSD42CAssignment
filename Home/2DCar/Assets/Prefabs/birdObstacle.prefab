@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -220194714999335714}
   - component: {fileID: -6442995748115549638}
   - component: {fileID: -7228063355386633350}
+  - component: {fileID: 2806133123634490823}
   m_Layer: 0
   m_Name: birdObstacle
   m_TagString: Untagged
@@ -122,7 +123,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -156,3 +157,24 @@ PolygonCollider2D:
       - {x: 0.145, y: -0.225}
       - {x: 0.325, y: -0.155}
       - {x: 0.325, y: -0.055}
+--- !u!50 &2806133123634490823
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756843672630237929}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

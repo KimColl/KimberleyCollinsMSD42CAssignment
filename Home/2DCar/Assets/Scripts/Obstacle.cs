@@ -31,8 +31,8 @@ public class Obstacle : MonoBehaviour
     {
         //every frame start reducing the generate number by the time it subtracts the time by the time unity calculates itself for every frame
         shot -= Time.deltaTime; //start counting downwards
-
-        if(shot <= 0f)
+        
+        if(shot <= 0f) 
         {
             ObstacleFireBullets();
 

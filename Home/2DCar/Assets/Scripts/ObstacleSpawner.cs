@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//a list of waves from which to spawn enemies
+//a list of waves from which to spawn obstacles
 public class ObstacleSpawner : MonoBehaviour
 {
     //ceate a list of waves of WaveConfigs
-    [SerializeField] List<WaveConfig> waveConfigList;
+    [SerializeField] List<ObstacleWave> waveConfigList; 
 
     [SerializeField] bool loop = false;
 
@@ -33,12 +33,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     //coroutine to spawn all obstacles in a wave
     //to specify which obstacles from which wave they are going to spawn
-    private IEnumerator SpawnAllObstaclesInWave(WaveConfig waveConfig)
+    private IEnumerator SpawnAllObstaclesInWave(ObstacleWave waveConfig) 
     {
         //loop to spawn multiple obstacles in a wave
         for (int obstacleCount = 1; obstacleCount <= waveConfig.GetNumberOfObstacles(); obstacleCount++)
         {
-            var obstacle = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
+            var obstacle = Instantiate(waveConfig.GetObstaclePrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
 
             obstacle.GetComponent<ObstaclePathing>().SetWaveConfig(waveConfig);
 
@@ -50,7 +50,7 @@ public class ObstacleSpawner : MonoBehaviour
     //loop all waves
     private IEnumerator SpawningAllTheWaves()
     {
-        foreach(WaveConfig nowWave in waveConfigList)
+        foreach(ObstacleWave nowWave in waveConfigList)
         {
             //wait until the obstacles are spawned before going to the next wave
             yield return StartCoroutine(SpawnAllObstaclesInWave(nowWave));
