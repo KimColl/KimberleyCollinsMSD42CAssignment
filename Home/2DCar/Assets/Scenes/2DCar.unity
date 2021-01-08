@@ -369,7 +369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2226464998657612979, guid: 73ba508d96399bd4d94fff511acf52b5, type: 3}
       propertyPath: backgroundScrollingSpeed
-      value: 0.6
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 954369711023363502, guid: 73ba508d96399bd4d94fff511acf52b5, type: 3}
       propertyPath: m_Name
@@ -430,7 +430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3691426134471398370, guid: 93029ee73984be344beb63d3de74f277, type: 3}
       propertyPath: moveSpeed
-      value: 0.6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3691426134471398371, guid: 93029ee73984be344beb63d3de74f277, type: 3}
       propertyPath: m_LocalPosition.x
