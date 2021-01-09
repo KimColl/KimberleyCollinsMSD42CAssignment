@@ -28,7 +28,7 @@ public class ObstaclePathing : MonoBehaviour
         ObstacleMoving(); 
     }
 
-    private void ObstacleMoving() //change the name
+    private void ObstacleMoving() 
     {
         // 0, 1, 2, 3, 4    <=      4
         if (waypointElement <= waypoints.Count - 1)
@@ -39,10 +39,10 @@ public class ObstaclePathing : MonoBehaviour
             //to make sure that the z -axis is always equal to 0
             positionTarget.z = 0f;
 
-            var obstacleMove = waveConfig.GetObstacleMovementSpeed() * Time.deltaTime; //change the name of the enemyMove
+            var obstacleMove = waveConfig.GetObstacleMovementSpeed() * Time.deltaTime; 
 
             //move obstacle from current position to targetPosition, at enemyMovement speed
-            transform.position = Vector2.MoveTowards(transform.position, positionTarget, obstacleMove); //change the name of the enemyMove
+            transform.position = Vector2.MoveTowards(transform.position, positionTarget, obstacleMove); 
 
             //if obstacle reaches the target position
             if (transform.position == positionTarget)

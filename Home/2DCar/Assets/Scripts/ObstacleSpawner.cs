@@ -5,7 +5,7 @@ using UnityEngine;
 //a list of waves from which to spawn obstacles
 public class ObstacleSpawner : MonoBehaviour
 {
-    //ceate a list of waves of WaveConfigs
+    //ceate a list of waves of waveConfigList
     [SerializeField] List<ObstacleWave> waveConfigList; 
 
     [SerializeField] bool loop = false;

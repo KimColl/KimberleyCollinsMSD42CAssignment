@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3691426134471398371}
   - component: {fileID: 3691426134471398372}
-  - component: {fileID: 3691426134471398370}
   - component: {fileID: -4306136622761392954}
   - component: {fileID: 7471163613472429744}
+  - component: {fileID: 4179771914250731774}
   m_Layer: 0
   m_Name: 2DPlayerCar
   m_TagString: Untagged
@@ -85,20 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3691426134471398370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691426134471398373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8742486b66b45de439c87dc34edf3613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  padding: 0.7
 --- !u!114 &-4306136622761392954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +129,17 @@ PolygonCollider2D:
       - {x: 0.16499999, y: -0.24499999}
       - {x: 0.16499999, y: 0.265}
       - {x: 0.074999996, y: 0.305}
+--- !u!114 &4179771914250731774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691426134471398373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8742486b66b45de439c87dc34edf3613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  padding: 0.7
