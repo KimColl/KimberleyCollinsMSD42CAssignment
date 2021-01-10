@@ -10,6 +10,18 @@ public class Player : MonoBehaviour
 
     [SerializeField] float padding = 0.7f;
 
+    [SerializeField] AudioClip playerHealthReduction;
+
+    //allows the variable to set from the Inspector between 0 and 1
+    //0.70f means 70%
+    [SerializeField] [Range(0, 1)] float playerHealthReductionRangeVolume = 0.70f; //[Range(0, 1)] to set the voloume between 0 and 100%
+
+    [SerializeField] AudioClip pointsGained;
+
+    //allows the variable to set from the Inspector between 0 and 1
+    //0.70f means 70%
+    [SerializeField] [Range(0, 1)] float pointsGainedRangeVolume = 0.20f; //[Range(0, 1)] to set the voloume between 0 and 100%
+
     float xMin, xMax, yMin, yMax;
 
     // Start is called before the first frame update
@@ -52,5 +64,13 @@ public class Player : MonoBehaviour
         newXPos = Mathf.Clamp(newXPos, xMin, xMax);
 
         this.transform.position = new Vector2(newXPos, transform.position.y);
+    }
+
+    private void when2D_CarPlayerDie()
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerHealthReduction, Camera.main.transform.position, playerHealthReductionRangeVolume);
+        //find object of type Level in the Hierarchy and run its method LoadGameOverScene(), if the object is not there it will give me an error
+        FindObjectOfType<Level>().LoadGameOverScene();
     }
 }

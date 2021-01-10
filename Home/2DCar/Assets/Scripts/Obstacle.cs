@@ -14,6 +14,17 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] float objectFireBulletSpeed = 0.3f;
 
+    [SerializeField] int valuePoints = 5;
+
+    private void destroyObstcale()
+    {
+        //destroy the obstacle
+        Destroy(gameObject);
+
+        //add pts to SessionPlay points
+        FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

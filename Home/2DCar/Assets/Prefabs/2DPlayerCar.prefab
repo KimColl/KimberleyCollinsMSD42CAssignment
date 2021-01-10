@@ -143,3 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   padding: 0.7
+  playerHealthReduction: {fileID: 8300000, guid: 963b585f2261d6c4eb8a2d30a39de1b6, type: 3}
+  playerHealthReductionRangeVolume: 0.7
+  pointsGained: {fileID: 8300000, guid: 40046e6cd53a3fd45ae0cd5939b770c0, type: 3}
+  pointsGainedRangeVolume: 0.7
