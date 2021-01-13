@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4306136622761392954}
   - component: {fileID: 7471163613472429744}
   - component: {fileID: 4179771914250731774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2DPlayerCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,3 +147,4 @@ MonoBehaviour:
   playerHealthReductionRangeVolume: 0.7
   pointsGained: {fileID: 8300000, guid: 40046e6cd53a3fd45ae0cd5939b770c0, type: 3}
   pointsGainedRangeVolume: 0.7
+  playerHealthPoints: 50

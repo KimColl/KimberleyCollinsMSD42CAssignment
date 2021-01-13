@@ -27,7 +27,11 @@ public class Level : MonoBehaviour
         //loads the scene with name Game
         SceneManager.LoadScene("GameScene");
         //to reset the SessionPlay from the start
-        FindObjectOfType<SessionPlay>().RearrangeTheGame();
+        SessionPlay sp = FindObjectOfType<SessionPlay>();
+        if(sp != null)
+        {
+            sp.RearrangeTheGame();
+        }
     }
 
     public void LoadGameOverScene()
@@ -37,6 +41,18 @@ public class Level : MonoBehaviour
         StartCoroutine(WaitingUntilLoading());
     }
 
+    public void LoadWinnerScene()
+    {
+        //loads the scene with name WinnerScene
+        SceneManager.LoadScene("WinnerScene");
+        //to reset the SessionPlay from the start
+        SessionPlay s = FindObjectOfType<SessionPlay>();
+        if (s != null)
+        {
+            s.RearrangeTheGame();
+        }
+    }
+
     //this method will only works when the game is running as an exe file
     public void LeaveTheGameScene()
     {
@@ -44,15 +60,4 @@ public class Level : MonoBehaviour
         print("Quit The Game");
         Application.Quit();
     }
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }

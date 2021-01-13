@@ -16,29 +16,34 @@ public class SessionPlay : MonoBehaviour
 
     private void Setup()
     {
+        //if there is more than 1 SessionPlay,
+        //destroy the last one that was created
         int numOfSessionPlay = FindObjectsOfType<SessionPlay>().Length;
 
-        if(numOfSessionPlay > 1)
+        if(numOfSessionPlay > 1) //get the type of the BackgroundPlayMusic script
         {
             Destroy(gameObject); //destroy the last game object
         }
         else
         {
+            //protect the SessionPlay with DontDestroyOnLoad when changing the scenes
             DontDestroyOnLoad(gameObject);
         }
     }
 
+    //return the points
     public int GetPoints()
     {
        return points;
     }
 
-    //add p to points
+    //add pts to points
     public void AddingToPoints(int pts)
     {
         points += pts;
     }
 
+    //destroys the current SessionPlay
     public void RearrangeTheGame()
     {
         Destroy(gameObject); //to destroy the SessionPlay

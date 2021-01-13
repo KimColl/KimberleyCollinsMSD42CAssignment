@@ -20,6 +20,7 @@ public class ShowPoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ToString(); is used so that the number of the points can be converted to string
         showPointsText.text = sessionPlay.GetPoints().ToString();
     }
 }

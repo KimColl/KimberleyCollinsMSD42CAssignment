@@ -41,7 +41,7 @@ public class ObstaclePathing : MonoBehaviour
 
             var obstacleMove = waveConfig.GetObstacleMovementSpeed() * Time.deltaTime; 
 
-            //move obstacle from current position to targetPosition, at enemyMovement speed
+            //move obstacle from current position to targetPosition, at obstacleMovement speed
             transform.position = Vector2.MoveTowards(transform.position, positionTarget, obstacleMove); 
 
             //if obstacle reaches the target position

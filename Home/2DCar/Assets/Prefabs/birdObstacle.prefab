@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: -6442995748115549638}
   - component: {fileID: -7228063355386633350}
   - component: {fileID: 2806133123634490823}
-  m_Layer: 0
+  - component: {fileID: 2920734495462237538}
+  m_Layer: 9
   m_Name: birdObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,3 +179,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2920734495462237538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756843672630237929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a81343b7abc3e44a8ad94e5fef5c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shot: 0
+  minimumTimeBetweenShots: 0.1
+  maximumTimeBetweenShots: 3
+  valuePoints: 5
+  obstacleHealth: 5
+  explosionParticle: {fileID: 7079785507050228436, guid: d412261b3f9d0d24190d3ca781e7a8ac, type: 3}
+  explosionParticlesTime: 0.5
