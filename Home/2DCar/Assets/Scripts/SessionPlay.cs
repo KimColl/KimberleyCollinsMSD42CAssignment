@@ -6,9 +6,8 @@ using UnityEngine;
 //to make sure that only one game is running
 public class SessionPlay : MonoBehaviour
 {
-    int points = 0;
+    int playerPoints = 0;
 
-    // Start is called before the first frame update
     void Awake()
     {
         Setup();
@@ -18,9 +17,7 @@ public class SessionPlay : MonoBehaviour
     {
         //if there is more than 1 SessionPlay,
         //destroy the last one that was created
-        int numOfSessionPlay = FindObjectsOfType<SessionPlay>().Length;
-
-        if(numOfSessionPlay > 1) //get the type of the BackgroundPlayMusic script
+        if(FindObjectsOfType<SessionPlay>().Length > 1)
         {
             Destroy(gameObject); //destroy the last game object
         }
@@ -32,15 +29,15 @@ public class SessionPlay : MonoBehaviour
     }
 
     //return the points
-    public int GetPoints()
+    public int GetPlayerPoints()
     {
-       return points;
+       return playerPoints;
     }
 
     //add pts to points
     public void AddingToPoints(int pts)
     {
-        points += pts;
+        playerPoints += pts;
     }
 
     //destroys the current SessionPlay

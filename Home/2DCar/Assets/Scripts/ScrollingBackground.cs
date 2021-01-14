@@ -23,7 +23,7 @@ public class ScrollingBackground : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         //to update at that offset
         //move the texture of the material by offset every frame

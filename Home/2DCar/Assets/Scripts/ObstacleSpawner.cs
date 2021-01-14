@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     //ceate a list of waves of waveConfigList
-    [SerializeField] List<ObstacleWave> waveConfigList; 
+    [SerializeField] List<ObstacleWave> waveConfigList;
 
     [SerializeField] bool loop = false;
 

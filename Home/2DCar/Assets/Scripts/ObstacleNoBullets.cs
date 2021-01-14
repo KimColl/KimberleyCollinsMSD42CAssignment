@@ -18,7 +18,12 @@ public class ObstacleNoBullets : MonoBehaviour
 
     [SerializeField] GameObject explosionParticle;
 
-    [SerializeField] float explosionParticlesTime = 0.5f;
+    [SerializeField] float explosionParticlesTime = 1.5f;
+
+    //0,1 means 0% or 100%
+    //[SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
+
+    //[SerializeField] AudioClip obstacleSound;
 
     //reduces health whenever collides with a gameObject
     //which has a DamageDealer component
@@ -31,21 +36,27 @@ public class ObstacleNoBullets : MonoBehaviour
             return;
         }
 
+        CollideWith(damageDealerObstacle);
     }
 
     //to send the DamageDealer details
-    private void collideWith(DamageDealer damageDealerObstacle)
+    private void CollideWith(DamageDealer damageDealerObstacle)
     {
         obstacleHealth -= damageDealerObstacle.GetDamageWaveBullets();
+
         damageDealerObstacle.Hit();
+
         if (obstacleHealth <= 0)
         {
-            destroyObstcale();
+            DestroyObstcale();
         }
     }
 
-    private void destroyObstcale()
+    private void DestroyObstcale()
     {
+        //add pts to SessionPlay points
+        FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
+
         //destroy the obstacle
         Destroy(gameObject);
 
@@ -54,9 +65,6 @@ public class ObstacleNoBullets : MonoBehaviour
 
         //destroy after 0.5 seconds
         Destroy(explosionObstacle, explosionParticlesTime);
-
-        //add pts to SessionPlay points
-        FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
     }
 
     // Start is called before the first frame update
@@ -69,7 +77,6 @@ public class ObstacleNoBullets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           
     }
 }
 

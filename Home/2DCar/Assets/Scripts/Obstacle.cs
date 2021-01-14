@@ -25,9 +25,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] float explosionParticlesTime = 1.5f;
 
     //0,1 means 0% or 100%
-    //[SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
+    [SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
 
-    //[SerializeField] AudioClip obstacleSound;
+    [SerializeField] AudioClip obstacleSound;
 
     //reduces health whenever collides with a gameObject
     //which has a DamageDealer component
@@ -44,11 +44,11 @@ public class Obstacle : MonoBehaviour
     }
 
     //to send the DamageDealer details
-    private void CollideWith(DamageDealer damageDealerObstacle)
+    private void CollideWith(DamageDealer damageDealers)
     {
-        obstacleHealth -= damageDealerObstacle.GetDamageWaveBullets();
+        obstacleHealth -= damageDealers.GetDamageWaveBullets();
 
-        damageDealerObstacle.Hit();
+        damageDealers.Hit();
 
         if(obstacleHealth <= 0)
         {
@@ -58,7 +58,6 @@ public class Obstacle : MonoBehaviour
 
     private void DestroyObstcale()
     {
-        //add pts to SessionPlay points
         FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
 
         //destroy the obstacle
@@ -69,6 +68,8 @@ public class Obstacle : MonoBehaviour
 
         //destroy after 0.5 seconds
         Destroy(explosionObstacle, explosionParticlesTime);
+
+        AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
     }
 
     // Start is called before the first frame update

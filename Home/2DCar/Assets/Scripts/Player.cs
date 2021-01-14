@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
 
         if (playerHealthPoints <= 0)
         {
-            //check from code (Audio) When2D_CarPlayerDie();
             When2D_CarPlayerDie();
         }
     }
@@ -70,6 +69,7 @@ public class Player : MonoBehaviour
     {
         playerHealthPoints = 0;
         Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerHealthReduction, Camera.main.transform.position, playerHealthReductionRangeVolume);
         //find object of type Level in the Hierarchy and run its method LoadGameOverScene(), if the object is not there it will give me an error
         FindObjectOfType<Level>().LoadGameOverScene();
     }
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
     public void Win()
     {
-        if(playerHealthPoints >= 100)
+        if (playerHealthPoints >= 100)
         {
             Destroy(gameObject);
             FindObjectOfType<Level>().LoadWinnerScene();

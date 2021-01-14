@@ -8,7 +8,7 @@ public class ObstacleDestroyer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherObjects)
     {
         //runs when the otherObject collides with the ObstacleDestroyer
-        print("Collision with " + otherObjects.name);
+        //print("Collision with " + otherObjects.name);
         Destroy(otherObjects.gameObject);
     }
 }

@@ -18,7 +18,7 @@ public class ObstaclePathing : MonoBehaviour
         //get the List waypoints from WaveConfig
         waypoints = waveConfig.GetWayPoints();
 
-        //set the start position of Enemy to the first waypoint position
+        //set the start position of obstacle to the first waypoint position
         transform.position = waypoints[waypointElement].transform.position;
     }
 
