@@ -21,9 +21,9 @@ public class ObstacleNoBullets : MonoBehaviour
     [SerializeField] float explosionParticlesTime = 1.5f;
 
     //0,1 means 0% or 100%
-    //[SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
+    [SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
 
-    //[SerializeField] AudioClip obstacleSound;
+    [SerializeField] AudioClip obstacleSound;
 
     //reduces health whenever collides with a gameObject
     //which has a DamageDealer component
@@ -65,6 +65,8 @@ public class ObstacleNoBullets : MonoBehaviour
 
         //destroy after 0.5 seconds
         Destroy(explosionObstacle, explosionParticlesTime);
+
+        AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
     }
 
     // Start is called before the first frame update

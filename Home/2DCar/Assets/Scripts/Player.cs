@@ -18,12 +18,21 @@ public class Player : MonoBehaviour
 
     [SerializeField] int playerHealthPoints = 50;
 
+    int playerGamePoints;
+
     float xMin, xMax, yMin, yMax;
+
+    [SerializeField] GameObject explosionParticle;
+
+    [SerializeField] float explosionParticlesTime = 1f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SettingBoundaries();
+        AddPoints();
+        Win();
     }
 
     // Update is called once per frame
@@ -38,7 +47,7 @@ public class Player : MonoBehaviour
     }
 
     //reduces health when the carPlayer collides with a game/object which has a DamageDealer class component
-    private void OnTriggerEnter2D(Collider2D objects)
+    public void OnTriggerEnter2D(Collider2D objects)
     {
         DamageDealer dealDamage = objects.gameObject.GetComponent<DamageDealer>();
 
@@ -47,7 +56,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
         HitPlayer(dealDamage);
+       
     }
 
     //when HitPlayer() is called, send the DamageDealer details
@@ -59,19 +70,32 @@ public class Player : MonoBehaviour
 
         AudioSource.PlayClipAtPoint(playerHealthReduction, Camera.main.transform.position, playerHealthReductionRangeVolume);
 
-        if (playerHealthPoints <= 0)
+        When2D_CarPlayerDie();
+        
+    }
+
+    private void AddPoints()
+    {
+        if (playerGamePoints == 0)
         {
-            When2D_CarPlayerDie();
+            playerGamePoints = playerGamePoints + 5;
+            FindObjectOfType<SessionPlay>().AddingToPoints(playerGamePoints);
         }
     }
 
     private void When2D_CarPlayerDie()
     {
-        playerHealthPoints = 0;
-        Destroy(gameObject);
-        AudioSource.PlayClipAtPoint(playerHealthReduction, Camera.main.transform.position, playerHealthReductionRangeVolume);
-        //find object of type Level in the Hierarchy and run its method LoadGameOverScene(), if the object is not there it will give me an error
-        FindObjectOfType<Level>().LoadGameOverScene();
+
+        if ((playerHealthPoints <= 0) && (playerGamePoints < 100))
+        {
+            Destroy(gameObject);
+            GameObject playerExplode = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+            Destroy(playerExplode, explosionParticlesTime);
+            AudioSource.PlayClipAtPoint(playerHealthReduction, Camera.main.transform.position, playerHealthReductionRangeVolume);
+            //find object of type Level in the Hierarchy and run its method LoadGameOverScene(), if the object is not there it will give me an error
+            FindObjectOfType<Level>().LoadGameOverScene();
+        }
+           
     }
 
     //private void PlayerDie()
@@ -118,11 +142,10 @@ public class Player : MonoBehaviour
         this.transform.position = new Vector2(newXPos, transform.position.y);
     }
 
-    public void Win()
+    private void Win()
     {
-        if (playerHealthPoints >= 100)
+        if (playerGamePoints >= 100)
         {
-            Destroy(gameObject);
             FindObjectOfType<Level>().LoadWinnerScene();
         }
     }

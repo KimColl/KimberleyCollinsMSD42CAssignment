@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class showPoints : MonoBehaviour
 {
-    Text carPlayerPoints;  //updates the text of carPlayerPoints in UI
-
     SessionPlay sessionPlay;
+    Text carPlayerPoints;  //updates the text of carPlayerPoints in UI
 
     void Start()
     {
@@ -17,6 +16,7 @@ public class showPoints : MonoBehaviour
 
     private void Update()
     {
+        //update the Score in UI with the score
         carPlayerPoints.text = sessionPlay.GetPlayerPoints().ToString();
     }
 }

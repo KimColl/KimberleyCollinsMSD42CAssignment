@@ -16,32 +16,32 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] float objectFireBulletSpeed = 0.3f;
 
-    [SerializeField] int valuePoints = 5;
+    [SerializeField] int valuePoints;
 
     [SerializeField] float obstacleHealth = 5f;
 
     [SerializeField] GameObject explosionParticle;
 
-    [SerializeField] float explosionParticlesTime = 1.5f;
+    [SerializeField] float explosionParticlesTime = 1f;
 
     //0,1 means 0% or 100%
     [SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
 
     [SerializeField] AudioClip obstacleSound;
 
-    //reduces health whenever collides with a gameObject
-    //which has a DamageDealer component
-    private void OnTriggerEnter2D(Collider2D objects)
-    {
-        DamageDealer damageDealerObstacle = objects.gameObject.GetComponent<DamageDealer>();
-        //if there is no damageDealerObstacle in objects, end the method
-        if (damageDealerObstacle == null)
-        {
-            return;
-        }
+    ////reduces health whenever collides with a gameObject
+    ////which has a DamageDealer component
+    //private void OnTriggerEnter2D(Collider2D objects)
+    //{
+    //    DamageDealer damageDealerObstacle = objects.gameObject.GetComponent<DamageDealer>();
+    //    //if there is no damageDealerObstacle in objects, end the method
+    //    if (damageDealerObstacle == null)
+    //    {
+    //        return;
+    //    }
 
-        CollideWith(damageDealerObstacle);
-    }
+    //    CollideWith(damageDealerObstacle);
+    //}
 
     //to send the DamageDealer details
     private void CollideWith(DamageDealer damageDealers)
@@ -70,6 +70,7 @@ public class Obstacle : MonoBehaviour
         Destroy(explosionObstacle, explosionParticlesTime);
 
         AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
+
     }
 
     // Start is called before the first frame update
