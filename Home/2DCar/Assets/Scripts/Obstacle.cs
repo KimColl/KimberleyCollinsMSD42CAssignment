@@ -29,45 +29,40 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] AudioClip obstacleSound;
 
-    ////reduces health whenever collides with a gameObject
-    ////which has a DamageDealer component
-    //private void OnTriggerEnter2D(Collider2D objects)
-    //{
-    //    DamageDealer damageDealerObstacle = objects.gameObject.GetComponent<DamageDealer>();
-    //    //if there is no damageDealerObstacle in objects, end the method
-    //    if (damageDealerObstacle == null)
-    //    {
-    //        return;
-    //    }
+    
 
-    //    CollideWith(damageDealerObstacle);
-    //}
+    //reduces health whenever collides with a gameObject
+    //which has a DamageDealer component
+    public void OnTriggerEnter2D(Collider2D objects)
+    {
+        DamageDealer damageDealerObstacle = objects.gameObject.GetComponent<DamageDealer>();
+
+        CollideWith(damageDealerObstacle);
+    }
 
     //to send the DamageDealer details
-    private void CollideWith(DamageDealer damageDealers)
+    public void CollideWith(DamageDealer damageDealers)
     {
         obstacleHealth -= damageDealers.GetDamageWaveBullets();
 
-        damageDealers.Hit();
+        Destroy(gameObject);
 
-        if(obstacleHealth <= 0)
-        {
-            DestroyObstcale();
-        }
+        AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
+
+        WhenObstacleDie();
+
     }
 
-    private void DestroyObstcale()
+    private void WhenObstacleDie()
     {
-        FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
-
         //destroy the obstacle
         Destroy(gameObject);
 
         //instantiate explosion effects
-        GameObject explosionObstacle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+        GameObject obstacleExplode = Instantiate(explosionParticle, transform.position, Quaternion.identity);
 
         //destroy after 0.5 seconds
-        Destroy(explosionObstacle, explosionParticlesTime);
+        Destroy(obstacleExplode, explosionParticlesTime);
 
         AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
 

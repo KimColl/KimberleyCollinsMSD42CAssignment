@@ -12,6 +12,8 @@ public class ObstaclePathing : MonoBehaviour
     //saves the waypoint in which we want to go
     int waypointElement = 0;
 
+    int playerGamePoints = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +57,18 @@ public class ObstaclePathing : MonoBehaviour
         else
         {
             Destroy(gameObject);
+
+            playerGamePoints += 5;
+            FindObjectOfType<SessionPlay>().AddingToPoints(playerGamePoints);
+            if (playerGamePoints >= 100)
+            {
+                Destroy(gameObject);
+                //find object of type Level in the Hierarchy and run its method LoadGameOverScene(), if the object is not there it will give me an error
+                FindObjectOfType<Level>().LoadWinnerScene();
+            }
         }
+
+        
     }
 
     //set a WaveConfig
@@ -63,5 +76,13 @@ public class ObstaclePathing : MonoBehaviour
     {
         waveConfig = waveConfigToSet;
     }
+
+    //public void Win()
+    //{
+    //    if (playerGamePoints >= pG)
+    //    {
+    //        FindObjectOfType<Level>().LoadWinnerScene();
+    //    }
+    //}
 
 }

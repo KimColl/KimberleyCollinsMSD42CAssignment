@@ -12,13 +12,13 @@ public class ObstacleNoBullets : MonoBehaviour
 
     [SerializeField] float maximumTimeBetweenShots = 3f;
 
-    [SerializeField] int valuePoints = 5;
+    [SerializeField] int valuePoints;
 
     [SerializeField] float obstacleHealth = 5f;
 
     [SerializeField] GameObject explosionParticle;
 
-    [SerializeField] float explosionParticlesTime = 1.5f;
+    [SerializeField] float explosionParticlesTime = 1f;
 
     //0,1 means 0% or 100%
     [SerializeField] [Range(0, 1)] float obstacleSoundEffect = 0.75f;
@@ -27,46 +27,38 @@ public class ObstacleNoBullets : MonoBehaviour
 
     //reduces health whenever collides with a gameObject
     //which has a DamageDealer component
-    private void OnTriggerEnter2D(Collider2D objects)
+    public void OnTriggerEnter2D(Collider2D objects)
     {
         DamageDealer damageDealerObstacle = objects.gameObject.GetComponent<DamageDealer>();
-        //if there is no damageDealerObstacle in objects, end the method
-        if (damageDealerObstacle == null)
-        {
-            return;
-        }
 
         CollideWith(damageDealerObstacle);
     }
 
     //to send the DamageDealer details
-    private void CollideWith(DamageDealer damageDealerObstacle)
+    public void CollideWith(DamageDealer damageDealers)
     {
-        obstacleHealth -= damageDealerObstacle.GetDamageWaveBullets();
+        obstacleHealth -= damageDealers.GetDamageWaveBullets();
 
-        damageDealerObstacle.Hit();
+        Destroy(gameObject);
 
-        if (obstacleHealth <= 0)
-        {
-            DestroyObstcale();
-        }
+        AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
+
+        WhenObstacleDie();
     }
 
-    private void DestroyObstcale()
+    private void WhenObstacleDie()
     {
-        //add pts to SessionPlay points
-        FindObjectOfType<SessionPlay>().AddingToPoints(valuePoints);
-
         //destroy the obstacle
         Destroy(gameObject);
 
         //instantiate explosion effects
-        GameObject explosionObstacle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+        GameObject obstacleExplode = Instantiate(explosionParticle, transform.position, Quaternion.identity);
 
         //destroy after 0.5 seconds
-        Destroy(explosionObstacle, explosionParticlesTime);
+        Destroy(obstacleExplode, explosionParticlesTime);
 
         AudioSource.PlayClipAtPoint(obstacleSound, Camera.main.transform.position, obstacleSoundEffect);
+
     }
 
     // Start is called before the first frame update
@@ -76,9 +68,5 @@ public class ObstacleNoBullets : MonoBehaviour
         shot = Random.Range(minimumTimeBetweenShots, maximumTimeBetweenShots);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }
 

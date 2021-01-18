@@ -194,7 +194,7 @@ MonoBehaviour:
   shot: 0
   minimumTimeBetweenShots: 0.1
   maximumTimeBetweenShots: 3
-  valuePoints: 5
+  valuePoints: 0
   obstacleHealth: 0
   explosionParticle: {fileID: 7079785507050228436, guid: d412261b3f9d0d24190d3ca781e7a8ac, type: 3}
   explosionParticlesTime: 0.5

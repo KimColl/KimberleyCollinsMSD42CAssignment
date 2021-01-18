@@ -198,7 +198,7 @@ MonoBehaviour:
   maximumTimeBetweenShots: 3
   obstacleFirePrefab: {fileID: 1288675776642377890, guid: bf3d197c822c4f04599af12620b43a9f, type: 3}
   objectFireBulletSpeed: 5
-  valuePoints: 5
+  valuePoints: 0
   obstacleHealth: 0
   explosionParticle: {fileID: 7079785507050228436, guid: d412261b3f9d0d24190d3ca781e7a8ac, type: 3}
   explosionParticlesTime: 0.5

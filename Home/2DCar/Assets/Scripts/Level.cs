@@ -8,16 +8,18 @@ public class Level : MonoBehaviour
 {
     [SerializeField] float slowDown = 1.5f;
 
+    [SerializeField] float slowTheGame = 1.5f;
+
     //when the obstacles dies, then wait 1.5 seconds and then load the scene
-    IEnumerator WaitingUntilLoading()
+    IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(slowDown); //wait 1.5 seconds
         SceneManager.LoadScene("GameOverScene"); //and then load the GameOverScene
     }
 
-    IEnumerator WaitingUntilLoads()
+    IEnumerator WaitingUntilWinLoading()
     {
-        yield return new WaitForSeconds(slowDown); //wait 1.5 seconds
+        yield return new WaitForSeconds(slowTheGame); //wait 1.5 seconds
         SceneManager.LoadScene("WinnerScene"); //and then load the GameOverScene
     }
 
@@ -37,7 +39,12 @@ public class Level : MonoBehaviour
     {
         //loads the scene with name GameOver
         //SceneManager.LoadScene("GameOverScene");
-        StartCoroutine(WaitingUntilLoading());
+        StartCoroutine(WaitTime());
+    }
+
+    public void LoadWinnerScene()
+    {
+        StartCoroutine(WaitingUntilWinLoading());
     }
 
     public void LoadMenuScene()
@@ -50,14 +57,8 @@ public class Level : MonoBehaviour
     //this method will only works when the game is running as an exe file
     public void LeaveTheGameScene()
     {
-        //Quit the Game
         print("Quit The Game");
+        //Quit the Game
         Application.Quit();
-    }
-
-
-    public void LoadWinnerScene()
-    {
-        StartCoroutine(WaitingUntilLoads());
     }
 }
