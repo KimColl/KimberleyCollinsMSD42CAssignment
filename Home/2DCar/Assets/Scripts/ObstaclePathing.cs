@@ -14,6 +14,12 @@ public class ObstaclePathing : MonoBehaviour
 
     int playerGamePoints = 0;
 
+    [SerializeField] AudioClip playerPointsGained;
+
+    //allows the variable to set from the Inspector between 0 and 1
+    //0.70f means 70%
+    [SerializeField] [Range(0, 1)] float playerPointsGainedRangeVolume = 0.70f; //[Range(0, 1)] to set the voloume between 0 and 100%
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +66,8 @@ public class ObstaclePathing : MonoBehaviour
 
             playerGamePoints += 5;
             FindObjectOfType<SessionPlay>().AddingToPoints(playerGamePoints);
+
+            AudioSource.PlayClipAtPoint(playerPointsGained, Camera.main.transform.position, playerPointsGainedRangeVolume);
             if (playerGamePoints >= 100)
             {
                 Destroy(gameObject);
@@ -76,13 +84,5 @@ public class ObstaclePathing : MonoBehaviour
     {
         waveConfig = waveConfigToSet;
     }
-
-    //public void Win()
-    //{
-    //    if (playerGamePoints >= pG)
-    //    {
-    //        FindObjectOfType<Level>().LoadWinnerScene();
-    //    }
-    //}
 
 }

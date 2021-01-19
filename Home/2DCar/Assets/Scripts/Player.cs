@@ -55,7 +55,6 @@ public class Player : MonoBehaviour
         }
 
         HitPlayer(dealDamage);
-       
     }
 
     //when HitPlayer() is called, send the DamageDealer details

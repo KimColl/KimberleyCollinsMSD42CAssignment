@@ -19,10 +19,17 @@ public class ObstacleSpawner : MonoBehaviour
         //if loop is ticked, that means that it is true and it will loop many times
         do
         {
-            //starts the coroutine (SpawningAllTheWaves) and it will wait until that coroutine finishes
-            yield return StartCoroutine(SpawningAllTheWaves());
+            //starts the coroutine (spawningallthewaves) and it will wait until that coroutine finishes
+            //yield return startcoroutine(spawningallthewaves());
+            foreach (ObstacleWave nowwave in waveConfigList)
+            {
+                //wait until the obstacles are spawned before going to the next wave
+                yield return StartCoroutine(SpawnAllObstaclesInWave(nowwave));
+            }
         }
-        while (loop == true); //when this coroutine (SpawningAllTheWaves) finishes, it cheks if it is still looping and it will start all over again
+        while (loop == true); //when this coroutine (spawningallthewaves) finishes, it cheks if it is still looping and it will start all over again
+
+
     }
 
     // Update is called once per frame
